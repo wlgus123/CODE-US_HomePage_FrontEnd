@@ -14,12 +14,14 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderLogo = styled.div`
-    margin: auto 3vmin;
+    margin: auto 2rem;
 `;
 
 const HeaderRight = styled.div`
     margin-left: auto;
-    padding: 2.5vh;
+    margin-right: 0.5rem;
+    padding: 1.7rem;
+    font-size: 10pt;
 `;
 
 const Ul = styled.ul`
@@ -28,12 +30,12 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-    margin: 0 1.5vmin;
+    margin: 0 1rem;
     color: white;
 `;
 
 const Img = styled.img`
-    width: 15vmin;
+    width: 8rem;
 `;
 
 const Header = () => {
@@ -51,7 +53,7 @@ const Header = () => {
                 <Ul>
                     <Li>Introduce</Li>
                     <Li>Project</Li>
-                    <Li>Support</Li>
+                    <Li>Application</Li>
                     <Li>Blog</Li>
                 </Ul>
             </HeaderRight>
