@@ -18,10 +18,10 @@ const HeaderLogo = styled.div`
 `;
 
 const HeaderRight = styled.div`
-    margin-left: auto;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem 0 auto;
+    // margin-right: 0.5rem;
     padding: 1.7rem;
-    font-size: 10pt;
+    font-size: 11pt;
 `;
 
 const Ul = styled.ul`

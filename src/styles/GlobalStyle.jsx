@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body {
         margin-top: 4.6em;
-        background-color: #0E0E0E;
+        background-color: ${props => props.theme.colors.background};
     }
     button {
         border: none;
