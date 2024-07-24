@@ -15,16 +15,12 @@ const Title = styled.h2`
 const ProjectContainer = styled.div`
   display: flex;
   padding: 1em;
-  margin: 1.5em 0;
+  margin: 1.5em 0 1.5em 7em;
   gap: 1.5em;
 `;
 
 const ImageBox = styled.div`
-  background-color: gray;
-  width: 350px;
-  height: 250px;
   flex-shrink: 0;
-  border-radius: 12px;
 `;
 
 const ButtonContainer = styled.div`
@@ -34,11 +30,20 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
   background-color: rgb(0, 0, 0, 0.3);
+  cursor: pointer;
   &.arrow {
+    position: absolute;
+    margin: 7em 0;
     box-shadow: 0 0 5px 0 rgb(255, 255, 255);
     width: 3em;
     height: 3em;
     border-radius: 50%;
+  }
+  &.prev {
+    left: 3em;
+  }
+  &.next {
+    right: 3em;
   }
   &.more {
     box-shadow: 0 0 10px 0 rgb(255, 255, 255);
@@ -52,9 +57,18 @@ const P = styled.p`
   margin: 2em;
 `;
 
+const Img = styled.img`
+  width: 20em;
+  border-radius: 12px;
+`;
+
 const ImageMap = ({ id, img, url }) => {
   return (
-    <ImageBox>{img}</ImageBox>
+    <ImageBox>
+      <a href={url} target="_blank">
+        <Img src={img} alt={id} />
+      </a>
+    </ImageBox>
   )
 };
 
@@ -62,22 +76,17 @@ const ProjectResult = () => {
   const projects = [
     {
       id: 1,
-      img: "a",  // a 대신 이미지 주소 넣기
+      img: "/pages/dummyImg1.png",  // a 대신 이미지 주소 넣기
       url: "https://github.com/CODE-U-S",
     },
     {
       id: 2,
-      img: "b",
+      img: "/pages/dummyImg2.png",
       url: "https://github.com/CODE-U-S",
     },
     {
       id: 3,
-      img: "c",
-      url: "https://github.com/CODE-U-S",
-    },
-    {
-      id: 4,
-      img: "d",
+      img: "/pages/dummyImg3.png",
       url: "https://github.com/CODE-U-S",
     },
   ];
@@ -96,10 +105,11 @@ const ProjectResult = () => {
         <Title>프로젝트 결과물</Title>
       </TitleContainer>
       <ProjectContainer>
-        {/* styled-component 사용하기 */}
-        <Button onClick={prevButton} className="arrow">&lt;</Button>
-        {/* 프로젝트 결과물 이미지들: map으로 사용하기 */}
-        <Button onClick={nextButton} className="arrow">&gt;</Button>
+        <Button onClick={prevButton} className="arrow prev">&lt;</Button>
+        {projects.map((props) => (
+          <ImageMap key={props.id} id={props.id} img={props.img} url={props.url} />
+        ))}
+        <Button onClick={nextButton} className="arrow next">&gt;</Button>
       </ProjectContainer>
       <ButtonContainer>
         <P>프로젝트가 더 궁금하시다면?</P>
